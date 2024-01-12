@@ -3,6 +3,7 @@ lomake.addEventListener("submit", tarkistaLomake)
 
 function tarkistaLomake(event) {
     event.preventDefault();
+    const ilmoituksetDiv = document.getElementById("ilmoitukset");
     const kayttajaid = document.getElementById("kayttaja").value;
     const salasana = document.getElementById("salasana").value;
     const nimi = document.getElementById("nimi").value;
@@ -25,10 +26,10 @@ function tarkistaLomake(event) {
         !salasana.match(salasanavaatimukset) ||
         kieli.length === 0
     ) {
-        console.log("Tarkista lomakkeen tiedot!");
+        ilmoituksetDiv.innerHTML = "<p>Tarkista lomakkeen tiedot!</p>";
         return false;
     }
-    console.log("Lomake lähetetty onnistuneesti!")
+    ilmoituksetDiv.innerHTML = "<p>Lomake lähetetty onnistuneesti!</p>";
     return true;
 }
 
